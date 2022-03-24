@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'home_page.dart';
 
 final theme = ThemeData(
   primarySwatch: Colors.blue,
+  scaffoldBackgroundColor: Colors.grey.shade600,
   textTheme: TextTheme(
     bodyText2: TextStyle(fontSize: 22, height: 1.4),
     caption: TextStyle(fontSize: 18, height: 1.4),
@@ -32,10 +34,14 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Dev\'s blog',
-      theme: theme,
-      home: HomePage(),
+    return Provider<String>(
+      create: (context) => 'Tarun',
+      child: MaterialApp(
+        title: 'Flutter Dev',
+        theme: theme,
+        debugShowCheckedModeBanner: false,
+        home: HomePage(),
+      ),
     );
   }
 }

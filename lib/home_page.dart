@@ -1,9 +1,11 @@
 import 'package:blog_web_app/constrained_centre.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final title = Provider.of<String>(context,listen: false);
     return Scaffold(
       appBar: AppBar(),
       body: Align(
@@ -16,22 +18,23 @@ class HomePage extends StatelessWidget {
             children: [
               ConstrainedCentre(
                 child: CircleAvatar(
-                  radius: 72,
+                  radius: 80,
                   backgroundImage: NetworkImage(
-                    'https://i.ibb.co/ZKkSW4H/profile-image.png',
+                    //'https://ibb.co/7Nr9DLH',
+                    'https://i.ibb.co/G3ChDNX/MY-PHOTOT-ORIGINAL-Copy-3.jpg'
                   ),
                 ),
               ),
               SizedBox(height: 18),
               ConstrainedCentre(
                 child: SelectableText(
-                  'Flutter Dev\'s blog',
+                  '${title} Flutter Dev',
                   style: Theme.of(context).textTheme.headline1,
                 ),
               ),
               SizedBox(height: 40),
               SelectableText(
-                'Hello, I’m a human. I’m a Flutter developer and an avid human. Occasionally, I nap.',
+                'Hello, I’m a Tarun. I’m a Flutter developer and an avid human. Occasionally, I nap.',
                 style: Theme.of(context).textTheme.bodyText2,
               ),
               SizedBox(height: 40),
