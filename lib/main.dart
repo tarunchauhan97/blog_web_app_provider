@@ -43,6 +43,7 @@ class MyApp extends StatelessWidget {
           theme: theme,
           debugShowCheckedModeBanner: false,
           home: HomePage(),
+          //just start
         ),
       ),
     );
