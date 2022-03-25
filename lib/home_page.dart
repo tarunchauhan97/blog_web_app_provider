@@ -1,3 +1,4 @@
+import 'package:blog_web_app/blog_post.dart';
 import 'package:blog_web_app/constrained_centre.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -6,7 +7,7 @@ import 'package:provider/provider.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // final title = Provider.of<String>(context,listen: false);
+    final posts = Provider.of<List<BlogPost>>(context,listen: false);
     return Scaffold(
       appBar: AppBar(),
       body: Align(
@@ -43,7 +44,8 @@ class HomePage extends StatelessWidget {
                 'Blog',
                 style: Theme.of(context).textTheme.headline2,
               ),
-              BlogListTile(),
+              for(var post in posts)
+              BlogListTile(post: post,),
             ],
           ),
         ),
@@ -53,17 +55,20 @@ class HomePage extends StatelessWidget {
 }
 
 class BlogListTile extends StatelessWidget {
+  const BlogListTile({Key? key,required this.post}) : super(key: key);
+
+  final BlogPost post;
   @override
   Widget build(BuildContext context) {
-    final title = Provider.of<String>(context,listen: false);
-    final date = Provider.of<DateTime>(context);
+    //final title = Provider.of<String>(context,listen: false);
+    //final date = Provider.of<DateTime>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 20),
         InkWell(
           child: Text(
-            '$title',
+            post.title,
             style: TextStyle(color: Colors.blueAccent.shade700),
           ),
           onTap: () {},
@@ -71,7 +76,8 @@ class BlogListTile extends StatelessWidget {
         SizedBox(height: 10),
         SelectableText(
           //'$date',
-          DateFormat('d MMMM y').format(date),
+          //post.publishedDate,
+          DateFormat('d MMMM y').format(post.publishedDate),
           style: Theme.of(context).textTheme.caption,
         ),
       ],
