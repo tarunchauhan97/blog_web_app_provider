@@ -34,22 +34,17 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Provider<String>(
-      create: (context) => 'Tarun Dev',
-      builder: (context, child) {
-        return MaterialApp(
-          title: Provider.of<String>(context, listen: false),
+    return Provider(
+      create: (context) => DateTime.now(),
+      child: Provider<String>(
+        create: (context) => 'What is Provider?',
+        child: MaterialApp(
+          title: 'Flutter Dev',
           theme: theme,
           debugShowCheckedModeBanner: false,
           home: HomePage(),
-        );
-      },
-      // child: MaterialApp(
-      //   title: Provider.of<String>(context,listen: false),
-      //   theme: theme,
-      //   debugShowCheckedModeBanner: false,
-      //   home: HomePage(),
-      // ),
+        ),
+      ),
     );
   }
 }

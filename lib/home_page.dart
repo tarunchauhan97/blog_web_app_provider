@@ -1,11 +1,12 @@
 import 'package:blog_web_app/constrained_centre.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //final title = Provider.of<String>(context,listen: false);
+    // final title = Provider.of<String>(context,listen: false);
     return Scaffold(
       appBar: AppBar(),
       body: Align(
@@ -54,20 +55,23 @@ class HomePage extends StatelessWidget {
 class BlogListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final title = Provider.of<String>(context,listen: false);
+    final date = Provider.of<DateTime>(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 20),
         InkWell(
           child: Text(
-            'What is provider',
+            '$title',
             style: TextStyle(color: Colors.blueAccent.shade700),
           ),
           onTap: () {},
         ),
         SizedBox(height: 10),
         SelectableText(
-          'January 2, 2020',
+          //'$date',
+          DateFormat('d MMMM y').format(date),
           style: Theme.of(context).textTheme.caption,
         ),
       ],
