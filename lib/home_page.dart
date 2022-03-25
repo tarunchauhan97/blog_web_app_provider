@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final title = Provider.of<String>(context,listen: false);
+    //final title = Provider.of<String>(context,listen: false);
     return Scaffold(
       appBar: AppBar(),
       body: Align(
@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
               SizedBox(height: 18),
               ConstrainedCentre(
                 child: SelectableText(
-                  '${title} Flutter Dev',
+                  'Flutter Dev',
                   style: Theme.of(context).textTheme.headline1,
                 ),
               ),
