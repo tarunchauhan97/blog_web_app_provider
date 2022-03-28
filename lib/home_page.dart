@@ -2,6 +2,7 @@ import 'package:blog_web_app/blog_page.dart';
 import 'package:blog_web_app/blog_post.dart';
 import 'package:blog_web_app/blog_scaffold.dart';
 import 'package:blog_web_app/constrained_centre.dart';
+import 'package:blog_web_app/user.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +11,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final posts = Provider.of<List<BlogPost>>(context, listen: false);
+    final user = Provider.of<User>(context);
     return BlogScaffold(
       //crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -18,13 +20,13 @@ class HomePage extends StatelessWidget {
             radius: 80,
             backgroundImage: NetworkImage(
                 //'https://ibb.co/7Nr9DLH',
-                'https://i.ibb.co/G3ChDNX/MY-PHOTOT-ORIGINAL-Copy-3.jpg'),
+                user.profilePicture),
           ),
         ),
         SizedBox(height: 18),
         ConstrainedCentre(
           child: SelectableText(
-            'Flutter Dev',
+            user.name,
             style: Theme.of(context).textTheme.headline1,
           ),
         ),

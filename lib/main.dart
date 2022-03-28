@@ -1,4 +1,5 @@
 import 'package:blog_web_app/blog_post.dart';
+import 'package:blog_web_app/user.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -38,8 +39,11 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<List<BlogPost>>(create: (context) => _blogPosts),
-        //Provider<List<BlogPost>>(create: (context) => DateTime.now()),
-        //Provider<String>(create: (context) => 'What is Provider?'),
+        Provider<User>(
+          create: (context) => User(
+              name: 'Flutter Dev',
+              profilePicture: 'https://i.ibb.co/G3ChDNX/MY-PHOTOT-ORIGINAL-Copy-3.jpg'),
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Dev',
