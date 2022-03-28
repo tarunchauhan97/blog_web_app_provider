@@ -53,6 +53,9 @@ class MyApp extends StatelessWidget {
 }
 
 final _blogPosts = [
-  BlogPost(title: 'What is Provider?', publishedDate: DateTime.now()),
-  BlogPost(title: 'What is multi-Provider?', publishedDate: DateTime(2021, 03, 24)),
+  BlogPost(title: 'What is Provider?', publishedDate: DateTime.now(), body: 'This is Body'),
+  BlogPost(
+      title: 'What is multi-Provider?',
+      publishedDate: DateTime(2021, 03, 24),
+      body: 'This is Body'),
 ];
